@@ -1,5 +1,6 @@
 package com.example.reactiveprogrammingtrianing.controller;
 
+import com.example.reactiveprogrammingtrianing.model.CreateAccountResponse;
 import com.example.reactiveprogrammingtrianing.service.PaymentService;
 import com.example.reactiveprogrammingtrianing.model.CreateAccountRequest;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,7 +16,7 @@ public class PaymentController {
         this.paymentService = paymentService;
     }
     @PostMapping("/account")
-    public Mono<?> createAccount(@RequestBody CreateAccountRequest createAccountRequest) {
+    public Mono<CreateAccountResponse> createAccount(@RequestBody CreateAccountRequest createAccountRequest) {
         return paymentService.createAccount(createAccountRequest);
     }
 }
